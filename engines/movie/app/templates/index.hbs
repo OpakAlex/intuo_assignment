@@ -1,0 +1,57 @@
+<div class="row">
+    <div class="col-sm-3 col-md-2 sidebar">
+        <ul class="nav nav-sidebar">
+            <li>Hi: {{session.session.authenticated.email}}</li>
+
+            <li class="active"><a href="javascript:void(0)">Overview <span class="sr-only">(current)</span></a></li>
+            {{#if isDescSort}}
+                {{#link-to "index" (query-params sort="asc")}} Asc Sort {{/link-to}} 
+            {{else}}
+                {{#link-to "index" (query-params sort="desc")}} Desc Sort {{/link-to}} 
+            {{/if}}
+            <li>
+                Filters
+                <form class="form-vertical">
+                    <div class="col">
+                        <label>Title</label>
+                        {{input type="text" value=filteredTitle}}
+                    </div>
+                    <label class="">Member</label>
+                    {{input type="text" value=filteredMember}}
+                    <a class="btn btn-default" href="#" {{action 'search'}}>Search</a>
+                </form>
+            </li>
+
+        </ul>
+    </div>
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <h1 class="page-header">Dashboard</h1>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Title</th>
+                        <th>Rating</th>
+                        <th>Members</th>
+                        <th>Directors</th>
+                        <th> Edit </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each model as |item|}}
+                        <tr>
+                            <td>{{item.id}}</td>
+                            <td>{{item.title}}</td>
+                            <td>{{item.rating}}</td>
+                            <td>{{members-name item.members}}</td>
+                            <td>{{members-name item.directors}}</td>
+                            <td>{{#link-to "edit" item.id}}Edit{{/link-to}}</td>
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+            {{pagination-model page=page model=model}}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="container">
+    <form class="form-signin">
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        {{input type="email" class="form-control" placeholder="Email address" required="" autofocus="" value=identification}}
+        <label for="inputPassword" class="sr-only">Password</label>
+        {{input type="password" class="form-control" placeholder="Password" required="" value=password}}
+        <div class="errors">
+            {{#each errors as |error|}}
+                <p> {{error}}</p>
+            {{/each}}
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" {{action 'authenticate'}} disabled={{inProcess}}>Sign in</button>
+        Or
+        {{#link-to "register" class="btn btn-lg btn-primary btn-block"}}Register{{/link-to}}
+    </form>
+</div>

@@ -1,0 +1,21 @@
+<div class="container">
+    <form class="form-signin">
+        <h2 class="form-signin-heading">Please create account</h2>
+        <label for="inputEmail" class="sr-only">Name</label>
+        {{input type="email" class="form-control" placeholder="Name" required="" autofocus="" value=name}}
+        <label for="inputEmail" class="sr-only">Email address</label>
+        {{input type="email" class="form-control" placeholder="Email address" required="" autofocus="" value=email}}
+        <label for="inputPassword" class="sr-only">Password</label>
+        {{input type="password" class="form-control" placeholder="Password" required="" value=password}}
+        <label for="inputPasswordConfirmation" class="sr-only">Password Confirmation</label>
+        {{input type="password" class="form-control" placeholder="Password Confirmation" required="" value=password_confirmation}}
+        <div class="errors">
+            {{#each errors as |error|}}
+                <p> {{error}}</p>
+            {{/each}}
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" {{action 'create'}} disabled={{inProcess}}>Create account</button>
+        Or
+        {{#link-to "login" class="btn btn-lg btn-primary btn-block"}}Login{{/link-to}}
+    </form>
+</div>
