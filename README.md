@@ -9,6 +9,7 @@
 * `npm install`
 * `bower install`
 * `ember s`
+* `register some user please`
 
 ## Specs
 `rspec spec`
