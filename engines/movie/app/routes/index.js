@@ -23,8 +23,8 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     let data = {
       sort: `rating ${params.sort || 'asc'}`,
       page: params.page || 1,
-      title: params.title,
-      member: params.member
+      title: params.title || '',
+      member: params.member || ''
     };
     return this.store.query('movie', data); 
   }
