@@ -49,7 +49,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.adapterUrl = "http://api.intuo.api-hogs.io"
   }
 
   return ENV;
