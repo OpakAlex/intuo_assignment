@@ -19,6 +19,7 @@ set :rbenv_ruby, '2.2.1'
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'pids', 'public/uploads')
 
 set :whenever_roles, ->{ :app }
+set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 
