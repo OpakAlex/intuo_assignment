@@ -9,6 +9,8 @@ export default Ember.Controller.extend({
   member: null,
   isDescSort: Ember.computed.equal('sort', 'desc'),
   isAscSort: Ember.computed.equal('sort', 'asc'),
+  filteredTitle: '',
+  filteredMember: '',
 
   actions: {
     search(){
